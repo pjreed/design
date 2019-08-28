@@ -191,7 +191,7 @@ ROS 1 has this feature using either the environment variable `ROS_NAMESPACE` or 
 ### Change the Node Name
 
 The node name is used in log messages and to create private names.
-ROS 1 has this feature using the argument `__node`.
+ROS 1 has this feature using the argument `__name`.
 
 *Example:*
 
@@ -271,7 +271,7 @@ The operators `*` and `**` are similar to the globbing behavior in bash.
 `**` behaves similar to its use in bash>=4.0 with the globstar option set.
 
 The URL schemes `rosservice://` and `rostopic://` may only be given to topic or service name rules.
-They may not be prefixed to a node name or namespace replacement rule (`__node` or `__ns`).
+They may not be prefixed to a node name or namespace replacement rule (`__name`, `__node`, or `__ns`).
 If both a node name prefix and URL scheme are given, the node name prefix must come first.
 
 `*`, and `**` match whole tokens only.
@@ -316,7 +316,7 @@ The replacement side of a rule must have a FQN which will become the new default
 
 #### Special Rule for Changing the Node Name
 
-The string `__node` can be given on the match part of a rule to signal a change of the node's name.
+The strings  `__name` or `__node` can be given on the match part of a rule to signal a change of the node's name.
 On the match side it may be used by itself or with a `nodename:` prefix.
 The replacement must be a single token which will become the node's new name.
 
